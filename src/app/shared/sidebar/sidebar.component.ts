@@ -3,8 +3,7 @@ import { SidebarService } from "./../../services/services.index";
 
 @Component({
   selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styles: []
+  templateUrl: './sidebar.component.html'
 })
 export class SidebarComponent implements OnInit {
 
