@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { SettingsService } from './services/services.index';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+
+  //aqui declaro los servicios para poder utilizarlo en cualquier parte del proyecto
+  // en este primer caso es utilizar el servicio de ajustes para utilziar sus metodos en cualquier
+  //componente de la app
+  constructor( public _ajustes: SettingsService){
+    
+  }
 }

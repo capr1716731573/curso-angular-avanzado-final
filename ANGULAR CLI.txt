@@ -1,0 +1,4 @@
+ng new nombreproyecto --dir="nombredecarpeta" (nuevo proyecto con directorio diferente)
+ng g c directorio/carpetacomponente -is --spect=false --flat
+(-is=no crear hoja de estilos) (--spect= no crear archvo spect) (--flat=no crear carpeta del componente)
+ng g g guards/auth --spec=false (son guards o ayudan a la autenticacion y permisos de navegacion por pagina o componente)
