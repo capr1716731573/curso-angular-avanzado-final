@@ -7,6 +7,7 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
 import { ProgressComponent } from './progress/progress.component';
 import { Graficas1Component } from './graficas1/graficas1.component';
 import { PaginasComponent } from './paginas.component';
+import { PromesasComponent } from './promesas/promesas.component';
 
 //MODULOS
 import { SharedModule } from '../shared/shared.module';
@@ -15,6 +16,8 @@ import { ComponentesReutilizablesModule } from "../componentes-reutilizables/com
 //RUTAS
 import { PAGES_ROUTES } from './paginas.routes';
 import { CuentaConfiguracionesComponent } from './cuenta-configuraciones/cuenta-configuraciones.component';
+import { RxjsComponent } from './rxjs/rxjs.component';
+
 
 @NgModule({
     declarations:[
@@ -22,7 +25,9 @@ import { CuentaConfiguracionesComponent } from './cuenta-configuraciones/cuenta-
         DashboardComponent,
         ProgressComponent,
         Graficas1Component,
-        CuentaConfiguracionesComponent
+        CuentaConfiguracionesComponent,
+        PromesasComponent,
+        RxjsComponent
     ],
     exports:[
         DashboardComponent,

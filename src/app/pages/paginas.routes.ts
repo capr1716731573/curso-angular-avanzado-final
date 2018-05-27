@@ -6,6 +6,8 @@ import { Graficas1Component } from "./graficas1/graficas1.component";
 import { PaginasComponent } from "./paginas.component";
 import { ProgressComponent } from "./progress/progress.component";
 import { CuentaConfiguracionesComponent } from "./cuenta-configuraciones/cuenta-configuraciones.component";
+import { PromesasComponent } from "./promesas/promesas.component";
+import { RxjsComponent } from './rxjs/rxjs.component';
 
 const pagesRoutes: Routes=[
     //RUTA DE PAGINAS O DE PAGINA PRINCIPAL QUE TIENE TODO HEADER , SIDEBAR , MAIN PAGE
@@ -16,10 +18,12 @@ const pagesRoutes: Routes=[
         path:'', 
         component: PaginasComponent,
         children:[
-            { path:'dashboard', component: DashboardComponent },
-            { path:'progress', component: ProgressComponent },
-            { path:'graficas1', component: Graficas1Component },
-            { path:'account-settings', component: CuentaConfiguracionesComponent },
+            { path:'dashboard', component: DashboardComponent, data:{ titulo:'Dashboard'} },
+            { path:'progress', component: ProgressComponent, data:{ titulo:'Progress'} },
+            { path:'graficas1', component: Graficas1Component, data:{ titulo:'Graficas Donas'} },
+            { path:'promesas', component: PromesasComponent, data:{ titulo:'Promesas'} },
+            { path:'rsjx', component: RxjsComponent , data:{ titulo:'RxJs - Observables'}},
+            { path:'account-settings', component: CuentaConfiguracionesComponent, data:{ titulo:'Ajustes del Tema'} },
             { path:'', redirectTo:'/dashboard', pathMatch:'full' }
         ] }
 ];
