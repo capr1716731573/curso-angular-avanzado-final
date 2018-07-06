@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 //COMPONENTES
@@ -29,8 +29,9 @@ import { ServiceModule } from './services/service.module';
   ],
   imports: [
     BrowserModule,
-    CommonModule
+    CommonModule,
     FormsModule,
+    ReactiveFormsModule,//se utiliza con el formGroup --- Ver pagina de Registros
     APP_ROUTES,
     PagesModule,
     ServiceModule
