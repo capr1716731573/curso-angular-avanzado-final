@@ -1,4 +1,5 @@
 import { NgModule } from "@angular/core";
+import { CommonModule } from "@angular/common";
 import { FormsModule } from "@angular/forms";
 import { ChartsModule } from "ng2-charts";
 
@@ -12,11 +13,15 @@ import { PromesasComponent } from './promesas/promesas.component';
 //MODULOS
 import { SharedModule } from '../shared/shared.module';
 import { ComponentesReutilizablesModule } from "../componentes-reutilizables/componentes-reutilizables.module";
+import { PipesModule } from '../pipes/pipes.module';
 
 //RUTAS
 import { PAGES_ROUTES } from './paginas.routes';
 import { CuentaConfiguracionesComponent } from './cuenta-configuraciones/cuenta-configuraciones.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
+import { ProfileComponent } from './profile/profile.component';
+
+
 
 
 @NgModule({
@@ -27,7 +32,8 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         Graficas1Component,
         CuentaConfiguracionesComponent,
         PromesasComponent,
-        RxjsComponent
+        RxjsComponent,
+        ProfileComponent
     ],
     exports:[
         DashboardComponent,
@@ -35,11 +41,13 @@ import { RxjsComponent } from './rxjs/rxjs.component';
         Graficas1Component
     ],
     imports:[
+        CommonModule,
         SharedModule,
         PAGES_ROUTES,
         ComponentesReutilizablesModule,
         FormsModule,
-        ChartsModule
+        ChartsModule,
+        PipesModule
     ]
 })
 

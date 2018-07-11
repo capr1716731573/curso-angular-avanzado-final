@@ -9,6 +9,7 @@ import { CuentaConfiguracionesComponent } from "./cuenta-configuraciones/cuenta-
 import { PromesasComponent } from "./promesas/promesas.component";
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { LoginGuards } from "../services/services.index";
+import { ProfileComponent } from "./profile/profile.component";
 
 const pagesRoutes: Routes=[
     //RUTA DE PAGINAS O DE PAGINA PRINCIPAL QUE TIENE TODO HEADER , SIDEBAR , MAIN PAGE
@@ -28,6 +29,7 @@ const pagesRoutes: Routes=[
             { path:'promesas', component: PromesasComponent, data:{ titulo:'Promesas'} },
             { path:'rsjx', component: RxjsComponent , data:{ titulo:'RxJs - Observables'}},
             { path:'account-settings', component: CuentaConfiguracionesComponent, data:{ titulo:'Ajustes del Tema'} },
+            { path:'perfil', component: ProfileComponent, data:{ titulo:'Perfil de Usuario'} },
             { path:'', redirectTo:'/dashboard', pathMatch:'full' }
         ] }
 ];
