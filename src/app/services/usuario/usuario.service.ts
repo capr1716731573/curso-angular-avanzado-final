@@ -23,6 +23,7 @@ export class UsuarioService {
    }
 
    estaLogueado(){
+     console.log(this.token);
      return( this.token.length > 5)?true: false;
    }
 
@@ -45,8 +46,9 @@ export class UsuarioService {
     }else {
       localStorage.removeItem('email');
     }
+    console.log(JSON.stringify(usuario));
 
-    let url=URL_SERVICIOS+'/login';
+    let url=URL_SERVICIOS+'/login/';
     return this.http.post(url, usuario)
                   .map( (resp:any) =>{
                     //Guardamos en el localstorage la informacion del API
@@ -118,7 +120,13 @@ export class UsuarioService {
     url+='?token='+this.token;
     return this.http.put(url,usuario)
     .map( (resp:any)=>{
-      this.guardarStorage(resp.usuario._id,this.token,resp.usuario);
+      //Solo si es el mismo usuario deja realizar esta accion
+      if(usuario._id===this.usuario._id){
+        this.guardarStorage(resp.usuario._id,this.token,resp.usuario);
+      }
+
+      
+      
       swal('Usuario Actualizado',usuario.nombre,"success");
       return true;
     });
@@ -136,6 +144,33 @@ export class UsuarioService {
           console.log('Error',resp.usuario);
           swal('Error al subir imagen',resp.mensaje,"error");
         })
+   }
+
+   /************************* */
+   /*** CARGAR USUARIOS DE LA BASE DE DATOS **********/
+   cargarUsuarios( desde:number=0){
+    let url= URL_SERVICIOS+'/usuario?desde='+desde;
+    return this.http.get(url);
+   }
+
+     /************************* */
+   /*** CARGAR USUARIOS DE LA BASE DE DATOS **********/
+   bsucarUsuarios( termino:string){
+    let url= URL_SERVICIOS+'/busqueda/coleccion/usuarios/'+termino;
+    //solo vamos a retornar un nodo de la respuesta, el nodo de usuarios
+    return this.http.get(url)
+               .map((resp:any)=>resp.usuarios);
+   }
+
+   borrarUsuario(id:string){
+     let url=URL_SERVICIOS+'/usuario/'+id;
+     url+='?token='+this.token;
+
+     return this.http.delete(url)
+                .map(resp => {
+                  swal('Usuario Borrado','El usuario a sido eliminado correctamente');
+                  return true;
+                })
    }
 
 

@@ -20,6 +20,7 @@ import { PAGES_ROUTES } from './paginas.routes';
 import { CuentaConfiguracionesComponent } from './cuenta-configuraciones/cuenta-configuraciones.component';
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
+import { UsuariosComponent } from './usuarios/usuarios.component';
 
 
 
@@ -33,7 +34,8 @@ import { ProfileComponent } from './profile/profile.component';
         CuentaConfiguracionesComponent,
         PromesasComponent,
         RxjsComponent,
-        ProfileComponent
+        ProfileComponent,
+        UsuariosComponent
     ],
     exports:[
         DashboardComponent,
