@@ -21,6 +21,9 @@ import { CuentaConfiguracionesComponent } from './cuenta-configuraciones/cuenta-
 import { RxjsComponent } from './rxjs/rxjs.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UsuariosComponent } from './usuarios/usuarios.component';
+import { HospitalComponent } from './hospital/hospital.component';
+import { MedicosComponent } from './medicos/medicos.component';
+import { MedicoComponent } from './medicos/medico.component';
 
 
 
@@ -35,7 +38,10 @@ import { UsuariosComponent } from './usuarios/usuarios.component';
         PromesasComponent,
         RxjsComponent,
         ProfileComponent,
-        UsuariosComponent
+        UsuariosComponent,
+        HospitalComponent,
+        MedicosComponent,
+        MedicoComponent
     ],
     exports:[
         DashboardComponent,

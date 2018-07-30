@@ -1,0 +1,52 @@
+<div class="row animated fadeIn">
+    <div class="col-md-6">
+        <div class="card card-body">
+            <h3 class="box-title m-b-0">Medico: {{ medico.nombre }}</h3>
+            <br>
+            <div class="row">
+                <div class="col-sm-12 col-xs-12">
+                    <form #formularioMedico="ngForm" ngNativeValidate (ngSubmit)="guardarMedico(formularioMedico)">
+                        <div class="form-group">
+                            <label>Nombre del Medico</label>
+                            <input [(ngModel)]="medico.nombre" name="nombre" type="text" class="form-control" placeholder="Ingrese Nombre del Medico" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Hospital</label>
+                            <select (change)="cambioHospital( $event.target.value )" [(ngModel)]="medico.hospital" name="hospital" class="form-control" required>
+                              <option value="">Seleccione Hospital</option>
+                              <option *ngFor="let hospital of listaHospitales" [value]="hospital._id">
+                                {{ hospital.nombre }}
+                              </option>
+                            </select>
+                        </div>
+
+                        <button type="submit" class="btn btn-success waves-effect waves-light m-r-10">
+                          <i class="fa fa-save"></i>
+                          Guardar</button>
+                        <a routerLink="/medicos" class="btn btn-inverse waves-effect waves-light">
+                            <i class="fa fa-close"></i> Cancelar
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MUESTRA IMAGEN DEL HOSPITAL A SELECCIONAR -->
+    <div class="col-md-3">
+        <div class="card card-body">
+            <h4 class="box-title m-b-0">Hospital</h4>
+            <img [src]="hospital && hospital.img | imagen_pipe:'hospital'" alt="" class="rounded img-fluid">
+        </div>
+    </div>
+
+    <!-- MUESTRA FOTOGRAFIA DE EL MEDICO -->
+    <!-- ESTA OPCION SALE CUANDO EDITO UN MEDICO CUANDO ES NUEVO NO SE ESCONDE POR ESO ESTA EL ngIf -->
+    <div class="col-md-3" *ngIf="medico._id">
+        <div class="card card-body">
+            <h4 class="box-title m-b-0">Fotografia</h4>
+            <img (click)="cambiarFoto()" [src]="medico && medico.img | imagen_pipe:'medico'" alt="" class="rounded img-fluid pointer">
+        </div>
+    </div>
+
+</div>

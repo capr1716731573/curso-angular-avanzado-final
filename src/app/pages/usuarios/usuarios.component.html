@@ -43,7 +43,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let usuario of listaUsuarios">
-                            <td class="w70"> <img (click)='mostrarModal( usuario._id)' [src]="usuario.img | imagen_pipe" class="img-50 img-circle"></td>
+                            <td class="w70 pointer"> <img (click)='mostrarModal( usuario._id)' [src]="usuario.img | imagen_pipe" class="img-50 img-circle"></td>
                             <td> {{ usuario.email }} </td>
                             <td> {{ usuario.nombre }} </td>
                             <td>
