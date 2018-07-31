@@ -1,7 +1,6 @@
 //Los Guards son servicios que me permiten validar quien entra o no a una ruta 
 import { Injectable } from '@angular/core';
 import { CanActivate, Router } from '@angular/router';
-import { Observable } from 'rxjs';
 import { UsuarioService } from '../usuario/usuario.service';
 
 @Injectable({

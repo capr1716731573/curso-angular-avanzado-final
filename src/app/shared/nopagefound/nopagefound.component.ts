@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DashboardComponent } from '../../pages/dashboard/dashboard.component';
 
 declare function init_plugins();
 
@@ -9,6 +10,7 @@ declare function init_plugins();
 })
 export class NopagefoundComponent implements OnInit {
 
+  anio:number=new Date().getFullYear();
   constructor() { }
 
   ngOnInit() {

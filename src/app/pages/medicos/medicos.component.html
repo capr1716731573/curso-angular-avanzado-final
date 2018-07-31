@@ -48,7 +48,7 @@
                     </thead>
                     <tbody>
                         <tr *ngFor="let medico of listaMedicos">
-                            <td class="w70 pointer"> <img (click)='mostrarModal( medico._id)' [src]="medico.img | imagen_pipe:'medico'" class="img-50 img-circle"></td>
+                            <td class="w70 pointer"> <img [src]="medico.img | imagen_pipe:'medico'" class="img-50 img-circle"></td>
                             <td> {{ medico.nombre }} </td>
                             <td> {{ medico.hospital.nombre }} </td>
                             <td>
