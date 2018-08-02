@@ -8,4 +8,4 @@ export { AdminGuard } from './guards/admin.guard';
 export { SubirArchivoService } from './subir-archivo/subir-archivo.service';
 export { HospitalService } from './hospital/hospital.service';
 export { MedicoService } from './medico/medico.service';
-
+export { VerificaExpiracionTokenGuard } from './guards/verifica-expiracion-token.guard';

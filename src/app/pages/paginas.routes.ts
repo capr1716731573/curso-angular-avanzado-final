@@ -8,7 +8,7 @@ import { ProgressComponent } from "./progress/progress.component";
 import { CuentaConfiguracionesComponent } from "./cuenta-configuraciones/cuenta-configuraciones.component";
 import { PromesasComponent } from "./promesas/promesas.component";
 import { RxjsComponent } from './rxjs/rxjs.component';
-import { LoginGuards } from "../services/services.index";
+import { LoginGuards, VerificaExpiracionTokenGuard } from "../services/services.index";
 import { ProfileComponent } from "./profile/profile.component";
 import { UsuariosComponent } from './usuarios/usuarios.component';
 import { HospitalComponent } from './hospital/hospital.component';
@@ -29,27 +29,26 @@ const pagesRoutes: Routes=[
         
         canActivate:[LoginGuards],
         children:[
-            { path:'dashboard', component: DashboardComponent, data:{ titulo:'Dashboard'} },
-            { path:'progress', component: ProgressComponent, data:{ titulo:'Progress'} },
-            { path:'graficas1', component: Graficas1Component, data:{ titulo:'Graficas Donas'} },
-            { path:'promesas', component: PromesasComponent, data:{ titulo:'Promesas'} },
-            { path:'rsjx', component: RxjsComponent , data:{ titulo:'RxJs - Observables'}},
-            { path:'account-settings', component: CuentaConfiguracionesComponent, data:{ titulo:'Ajustes del Tema'} },
-            { path:'perfil', component: ProfileComponent, data:{ titulo:'Perfil de Usuario'} },
-            { path:'busqueda/:termino', component: BusquedaComponent, data:{ titulo:'Buscardor Global'} },
+            { path:'dashboard', component: DashboardComponent, data:{ titulo:'Dashboard'}, canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'progress', component: ProgressComponent, data:{ titulo:'Progress'} , canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'graficas1', component: Graficas1Component, data:{ titulo:'Graficas Donas'} , canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'promesas', component: PromesasComponent, data:{ titulo:'Promesas'} , canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'rsjx', component: RxjsComponent , data:{ titulo:'RxJs - Observables'}, canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'account-settings', component: CuentaConfiguracionesComponent, data:{ titulo:'Ajustes del Tema'}, canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'perfil', component: ProfileComponent, data:{ titulo:'Perfil de Usuario'} , canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'busqueda/:termino', component: BusquedaComponent, data:{ titulo:'Buscardor Global'} , canActivate:[VerificaExpiracionTokenGuard] },
             //Mantenimientos
             { //aqui en usuario necesita una validacion adicional
                 path:'usuarios', 
                 component: UsuariosComponent, 
-                canActivate:[AdminGuard],
-                data:{ titulo:'Mantenimiento de Usuarios'} 
+                canActivate:[AdminGuard,VerificaExpiracionTokenGuard],
+                data:{ titulo:'Mantenimiento de Usuarios'}              
             },
-            { path:'hospitales', component: HospitalComponent, data:{ titulo:'Mantenimiento de Hospitales'} },
-            { path:'medicos', component: MedicosComponent, data:{ titulo:'Mantenimiento de Medicos'} },
-            { path:'medico/:id', component: MedicoComponent, data:{ titulo:'Actualizar Medicos'} },
+            { path:'hospitales', component: HospitalComponent, data:{ titulo:'Mantenimiento de Hospitales'} , canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'medicos', component: MedicosComponent, data:{ titulo:'Mantenimiento de Medicos'}, canActivate:[VerificaExpiracionTokenGuard] },
+            { path:'medico/:id', component: MedicoComponent, data:{ titulo:'Actualizar Medicos'} , canActivate:[VerificaExpiracionTokenGuard] },
             { path:'', redirectTo:'/dashboard', pathMatch:'full' }
         ] }
 ];
 
 export const PAGES_ROUTES = RouterModule.forChild( pagesRoutes); 
-

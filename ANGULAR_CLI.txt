@@ -2,3 +2,8 @@ ng new nombreproyecto --dir="nombredecarpeta" (nuevo proyecto con directorio dif
 ng g c directorio/carpetacomponente -is --spect=false --flat
 (-is=no crear hoja de estilos) (--spect= no crear archvo spect) (--flat=no crear carpeta del componente)
 ng g g guards/auth --spec=false (son guards o ayudan a la autenticacion y permisos de navegacion por pagina o componente)
+ng build -prod -aot false ---> hace al proyecto la version de produccion
+pero en angular 6 se coloca ng --prod
+
+	<!-- En la version de produccion en apache hay que comentar esta linea sino no encuentra las librerias -->
+    <!--<base href="/">-->
